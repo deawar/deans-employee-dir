@@ -83,7 +83,6 @@ const DataArea = () => {
         return 0;
       });
     }
-
     return sortedUsers;
   };
 
