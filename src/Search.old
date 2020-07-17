@@ -1,0 +1,84 @@
+import React, { Component } from "react";
+import './Search.css';
+
+class Search extends Component {
+    state = {
+        searchValue: '',
+        employees: []
+    };
+   
+    // handleOnChange to grab the user input
+    handleOnChange = event => {
+        this.setState({ searchValue: event.target.value });
+    };
+
+    // handleOnClick to get button click
+    handleSearch = () => {
+        this.makeApiCall(this.state.searchValue);
+    };
+
+    getEmployees = employees => {
+        const getEmpolyeesURL = `https://randomuser.me/api/?results=50`;
+        fetch(getEmpolyeesURL)
+        .then(response => {
+            return response.json();
+        })
+        .then(jsonData => {
+            console.log(jsonData.employees);
+            this.setState({ 
+                employees: jsonData.employees. });
+        });
+    };
+    
+
+    // make the API call to fetch employees(TODO move to it's own file)
+    makeAPICall = searchInput => {
+        var searchURL = `https://randomuser.me/api/?results=50`;
+        //Search term for searching the employee ?s=${searchInput}
+        fetch(searchURL)
+        .then(response => {
+            return response.json();
+        })
+        .then(jsonData => {
+            console.log(jsonData.employees);
+            this.setState({ employees: jsonData.employees });
+        });
+    };
+
+  // get initial list of employees  
+  componentDidMount(){
+    this.getEmployees();
+  }
+
+  //render search page
+    render() {
+        return (
+            <div>
+                <h1>Welcome to Dean's Employee Directory App</h1>
+                <input 
+                name="text" 
+                type="text" 
+                placeholder="Search"
+                onChange={event => this.handleOnChange(event)}
+                value={this.state.searchValue} 
+                />
+                <button onClick={this.handleSearch}>Search</button>
+                {this.state.employees ? (
+                    <div id="employees-container">
+                        {this.state.employees.map((employee, index) => (
+                            <div class="single-employee" key={index}>
+                                <h2>{employee.strEmployee}</h2>
+                                <img src={employee.strEmployeeThumb} alt="employee-thumbnail" />
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p>Try Searching for an Employee</p>                
+                )}
+            </div>
+        ); 
+    }
+}
+
+
+export default Search;
