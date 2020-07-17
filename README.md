@@ -1,4 +1,4 @@
-# React-Employee-Dir
+# Deans-Employee-Dir
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -7,6 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Project-Title: 
 Deans-Employee-Dir
+
+# Description:
+A React based app to display and sort a list of Employees.
 
 ## Author: 
 Dean Warren
@@ -81,7 +84,7 @@ npm app.js
 ```
 
 ## Contributing
-This application will be used for helping small businesses find a better way to conduct their daily business activites. So, please be respectful and mindful to others
+This application will be used for helping small businesses find a better way to manage employees. So, please be respectful and mindful to others
 
 <br>
 <img src="https://placeholder.com" alt="Demo">
