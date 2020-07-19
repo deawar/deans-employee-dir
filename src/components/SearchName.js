@@ -15,7 +15,6 @@ const SearchName = () => {
               type="search"
               aria-label="Search"
               onChange={e => context.handleSearchChange(e)} />
-              <i class="material-icons prefix">mdi-account-search-outline</i>
               <label for="search"></label>
             </div>
         </form>
