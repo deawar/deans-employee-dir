@@ -1,6 +1,6 @@
 import React from "react";
 import SearchName from "./SearchName.js";
-import SearchDOB from "./SearchDOB.js";
+// import SearchDOB from "./SearchDOB.js";
 import "../styles/Nav.css";
 
 function Nav() {
@@ -18,11 +18,11 @@ function Nav() {
             </button>
             <div className="collapse navbar-collapse row" id="navbarNav">
                 <div className="input-group col-4">
-                    <SearchDOB />
-                </div>
-                <div className="search-area col-4">
                     <SearchName />
                 </div>
+                {/* <div className="search-area col-4">
+                    <SearchName />
+                </div> */}
             </div>
         </nav>
     );
