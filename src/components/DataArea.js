@@ -23,7 +23,6 @@ const DataArea = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
 
   // LIFECYCLE METHODS
-  // https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useEffect-only-once
   useEffect(() => {
     API.getUsers().then((results) => {
       console.log(results.data.results);
@@ -32,41 +31,8 @@ const DataArea = () => {
     });
   }, []);
 
-  // CUSTOM METHODS
-  //   const compareFnc = (a, b) => {
-  //     if (currentOrder === "ascend") {
-  //       // account for missing values
-  //       if (a[heading] === undefined) {
-  //         return 1;
-  //       } else if (b[heading] === undefined) {
-  //         return -1;
-  //       }
-  //       // numerically
-  //       else if (heading === "name") {
-  //         return a[heading].first.localeCompare(b[heading].first);
-  //       } else if (heading === "dob") {
-  //         return a[heading].age - b[heading].age;
-  //       } else {
-  //         return a[heading].localeCompare(b[heading]);
-  //       }
-  //     } else {
-  //       // account for missing values
-  //       if (a[heading] === undefined) {
-  //         return 1;
-  //       } else if (b[heading] === undefined) {
-  //         return -1;
-  //       }
-  //       // numerically
-  //       else if (heading === "name") {
-  //         return b[heading].first.localeCompare(a[heading].first);
-  //       } else if (heading === "dob") {
-  //         return b[heading].age - a[heading].age;
-  //       } else {
-  //         return b[heading].localeCompare(a[heading]);
-  //       }
-  //     }
-  //   };
-
+  
+  // Refactored Search made possible by Jonathan Watson
   const sortAscending = (usersArray, sortOrder) => {
     let sortedUsers;
     if (sortOrder === "ascend") {
@@ -111,7 +77,7 @@ const DataArea = () => {
     const filteredList = users.filter((item) => {
       let values =
         item.name.first.toLowerCase() + " " + item.name.last.toLowerCase();
-      //console.log(filter, values)
+      
       if (values.indexOf(filter.toLowerCase()) !== -1) {
         return item;
       }
